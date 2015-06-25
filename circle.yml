@@ -10,6 +10,7 @@ dependencies:
   override:
     - npm install
     - docker info
+    - docker rmi $(docker images -aq)
     - docker build -t anononthefly/neptune-fe .
 
 deployment:
