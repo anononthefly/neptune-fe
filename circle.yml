@@ -9,6 +9,8 @@ dependencies:
     - node --version
   override:
     - npm install
+    - docker info
+    - docker build -t anononthefly/neptune-fe .
 
 deployment:
   hub:
