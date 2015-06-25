@@ -17,4 +17,4 @@ deployment:
     branch: master
     commands:
       - docker login -e anononthefly@gmail.com -u anononthefly -p anonthefly
-      - docker push anononthefly/neptune-fe
+      - docker push anononthefly/neptune-fe:latest
