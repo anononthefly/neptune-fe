@@ -10,7 +10,6 @@ dependencies:
   override:
     - npm install
     - docker info
-    - docker rmi $(docker images -q)
     - docker build -t anononthefly/neptune-fe .
 
 deployment:
@@ -21,4 +20,4 @@ deployment:
       - docker images -a
       - docker login -e anononthefly@gmail.com -u anononthefly -p anonthefly
       - docker images -a
-      - docker push anononthefly/neptune-fe:latest
+      - docker push anononthefly/neptune-fe
