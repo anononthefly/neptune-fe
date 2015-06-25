@@ -1,5 +1,5 @@
 # DOCKER-VERSION 1.1.2
-FROM dockerfile/nodejs:latest
+FROM dockerfile/nodejs
 
 # Bundle app source
 RUN mkdir -p /src
