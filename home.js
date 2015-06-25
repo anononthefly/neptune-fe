@@ -11,7 +11,7 @@ else API_URL = 'http://localhost:3001';
 /* GET users listing. */
 router.get('/', getToken, renderHome);
 
-repo = 'circleci/support';
+repo = 'github/markup';
 days = 0;
 daysEnd = 5;
 
