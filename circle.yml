@@ -19,8 +19,5 @@ deployment:
   hub:
     branch: master
     commands:
-      - docker images
-      - docker images -a
       - docker login -e anononthefly@gmail.com -u anononthefly -p anonthefly
-      - docker images -a
       - docker push anononthefly/neptune-fe
