@@ -11,7 +11,7 @@ else API_URL = 'http://localhost:3001';
 /* GET users listing. */
 router.get('/', getToken, renderHome);
 
-repo = 'github/markup';
+repo = 'ZenHubIO/support';
 days = 0;
 daysEnd = 5;
 
