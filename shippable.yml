@@ -6,7 +6,7 @@ node_js:
 env:
   global:
     - APP_NAME=neptune-fe
-    - secure: nEO2dAtqhLII2SLPlSpxNv7GbjXa0I7qH9kWYFbfQtbGtR3LFC6Bo/w64AtaOugSJl5RGv8MOrs4Uy3qb0+YNmFo3KZAbgWIv3AV33MjKnnbk+2UQE3COfobfMmcSiDsWWRHKpxzbNrMl0iHcdqzq72c5Y0lOMcnQeQlhhNEFPql7HRR3N9gmoQhMnP9g+Gm90gIep1u1wihSoT2Jc1xPqpkfibiOH4iZREiFWaCQPx2nARbWjD2iFugPsr6UFUkRPnus1bldhCXfanHuYmccULPBUUTknw8FNPtwyDFWn0M9cGOjk+9pSpHOH+w0NFP2QcsFZUV27lWB9k0cJZPIA==
+    - secure: N2zxWjmDB22XSsY2edEAGW1miT5fS+SplJofJg0Ki/AkkIrMfzOArZIgShSP7fG3A/0DH19Ft6jFt5PuACH+6+XOKQtsunNA7Rg14nxSymdw/wc+wWRKvCxBBNIhJ7NhFS2iCk9GOw/jcZeEQ8LMQ/WmgTFKpwyktY7f/xpiQcTnFd/Tpem5uIa9cug8Yp3qOqh7oGPhrJY5a23GhlpNnlEVjgoKsRL7vuJXDvuJh+WZTxY7qxkDy/EWkQqx5IxUoN68YkamC0KqK2HctKvmhdmSge/4KvuD3ke2A0iEHMd3aGFJX1QLZaTNnWz3694OpFMFChpDIhVqR32vNnbWqQ==
 
 before_install:
   - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
