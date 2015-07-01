@@ -19,17 +19,12 @@ before_install:
   - node --version
   - which wget
   - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-  - npm install -g grunt-cli
-  - mkdir -p ./shippable/testresults
-  - mkdir -p ./shippable/codecoverage
 
 install:
     - ruby -v
     - npm install
 
 after_success:
-    - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-    - ./node_modules/.bin/istanbul report cobertura --dir  ./shippable/codecoverage/
     - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
     - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
     - git push -f heroku master
