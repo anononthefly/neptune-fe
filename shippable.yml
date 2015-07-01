@@ -27,9 +27,6 @@ install:
     - ruby -v
     - npm install
 
-script:
-    - grunt
-
 after_success:
     - ./node_modules/.bin/istanbul cover grunt -- -u tdd
     - ./node_modules/.bin/istanbul report cobertura --dir  ./shippable/codecoverage/
