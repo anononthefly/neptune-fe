@@ -1,17 +1,39 @@
 language: node_js
 
 node_js:
-  - 0.10.25
+  - 0.10.33
 
 env:
   global:
     - APP_NAME=lower-canoe-3194
+    - XUNIT_FILE=./shippable/testresults/result.xml
     - secure: N2zxWjmDB22XSsY2edEAGW1miT5fS+SplJofJg0Ki/AkkIrMfzOArZIgShSP7fG3A/0DH19Ft6jFt5PuACH+6+XOKQtsunNA7Rg14nxSymdw/wc+wWRKvCxBBNIhJ7NhFS2iCk9GOw/jcZeEQ8LMQ/WmgTFKpwyktY7f/xpiQcTnFd/Tpem5uIa9cug8Yp3qOqh7oGPhrJY5a23GhlpNnlEVjgoKsRL7vuJXDvuJh+WZTxY7qxkDy/EWkQqx5IxUoN68YkamC0KqK2HctKvmhdmSge/4KvuD3ke2A0iEHMd3aGFJX1QLZaTNnWz3694OpFMFChpDIhVqR32vNnbWqQ==
-
+    
 before_install:
+  - apt-get -yy update
+  - apt-get -yy install ruby1.9.3
+  - apt-get -yy update
+  - apt-get -yy install wget
+  - apt-get -yy install sudo
+  - source ~/.nvm/nvm.sh && nvm install $SHIPPABLE_NODE_VERSION
+  - node --version
+  - which wget
   - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  - npm install -g grunt-cli
+  - mkdir -p ./shippable/testresults
+  - mkdir -p ./shippable/codecoverage
+
+install:
+    - ruby -v
+    - npm install
+
+script:
+    - grunt
 
 after_success:
-  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
-  - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
-  - git push -f heroku master
+    - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+    - ./node_modules/.bin/istanbul report cobertura --dir  ./shippable/codecoverage/
+    - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+    - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
+    - git push -f heroku master
+
