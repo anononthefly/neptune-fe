@@ -5,7 +5,7 @@ node_js:
 
 env:
   global:
-    - APP_NAME=neptune-fe
+    - APP_NAME=lower-canoe-3194
     - secure: N2zxWjmDB22XSsY2edEAGW1miT5fS+SplJofJg0Ki/AkkIrMfzOArZIgShSP7fG3A/0DH19Ft6jFt5PuACH+6+XOKQtsunNA7Rg14nxSymdw/wc+wWRKvCxBBNIhJ7NhFS2iCk9GOw/jcZeEQ8LMQ/WmgTFKpwyktY7f/xpiQcTnFd/Tpem5uIa9cug8Yp3qOqh7oGPhrJY5a23GhlpNnlEVjgoKsRL7vuJXDvuJh+WZTxY7qxkDy/EWkQqx5IxUoN68YkamC0KqK2HctKvmhdmSge/4KvuD3ke2A0iEHMd3aGFJX1QLZaTNnWz3694OpFMFChpDIhVqR32vNnbWqQ==
 
 before_install:

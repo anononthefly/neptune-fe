@@ -3,7 +3,7 @@ var router = express.Router();
 var request= require('request');
 
 if (process.env.API_URL !== undefined)
-  API_URL = process.env.API_URL;
+  API_URL = 'https://arctic-canoe-5436.herokuapp.com/' ;
 else if (!isNaN(process.env.API_PORT))
   API_URL = 'http://localhost:' + process.env.API_PORT;
 else API_URL = 'http://localhost:3001';
